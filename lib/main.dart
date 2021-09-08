@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:listinha/ui/lista_ui.dart';
+import 'package:listinha/model/task_data.dart';
+import 'package:provider/provider.dart';
+import 'view/lista_ui.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,8 +10,11 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: ListaUI(),
+    return ChangeNotifierProvider(
+      create: (context) => TaskData(),
+      child: MaterialApp(
+        home: ListaUI(),
+      ),
     );
   }
 }
